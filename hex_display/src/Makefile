@@ -1,7 +1,7 @@
 test: a.out
 	./a.out
 
-a.out: testbench.v clk_div.v uart_out.v uart_in.v
+a.out: testbench.v clk_div.v hex_to_seg.v counter.v hex_display.v
 	iverilog $^ -o $@
 
 clean:
