@@ -12,7 +12,7 @@ wire clk_out;
 clk_div #(.x(15), .y(5000)) clk_div(.clk(clk), .clk_out(clk_out));
 
 wire out;
-reg [7:0]data_out = 8'b1100001; //8'h61;	// A
+reg [7:0]data_out = 8'h61;
 uart_out uart_out(.clk(clk_out), .out(out), .data(data_out));
 
 wire in = out;

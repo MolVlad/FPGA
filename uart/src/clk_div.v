@@ -14,6 +14,5 @@ always @(posedge clk) begin
 end
 
 assign clk_out = (cnt == 0);
-//assign clk_out = (cnt > (y - 1));
 
 endmodule

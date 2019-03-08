@@ -12,7 +12,7 @@ wire [9:0]res = {stop, data, start};
 reg [3:0]bit_num = 0;
 reg bit = 1'b1;
 
-always @(posedge clk) begin
+always @(posedge clk) begin	
 	bit <= res[bit_num];
 
 	if(bit_num == 9)
