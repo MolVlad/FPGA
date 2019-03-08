@@ -9,13 +9,13 @@ always begin
 end
 
 wire counter_clk;
-clk_div #(.x(26), .y(4800)) clk_div1(.clk(clk), .clk_out(counter_clk));
+clk_div #(.x(26)) clk_div1(.clk(clk), .clk_out(counter_clk));
 
 wire [15:0]data;
 counter counter(.clk(counter_clk), .data(data));
 
 wire divided_clk;
-clk_div #(.x(12), .y(400)) clk_div2(.clk(clk), .clk_out(divided_clk));
+clk_div #(.x(12)) clk_div2(.clk(clk), .clk_out(divided_clk));
 
 wire [3:0]anodes;
 

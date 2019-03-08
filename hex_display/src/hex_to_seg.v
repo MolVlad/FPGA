@@ -4,15 +4,16 @@ module hex_to_seg (
 	output reg [7:0]seg
 );
 
+
 always @(*) begin
 	case(data)
 		4'h0: seg = 8'b11111100;
 		4'h1: seg = 8'b01100000;
 		4'h2: seg = 8'b11011010;
 		4'h3: seg = 8'b11110010;
-		4'h4: seg = 8'b01100010;
-		4'h5: seg = 8'b10110010;
-		4'h6: seg = 8'b10111010;
+		4'h4: seg = 8'b01100110;
+		4'h5: seg = 8'b10110110;
+		4'h6: seg = 8'b10111110;
 		4'h7: seg = 8'b11100000;
 		4'h8: seg = 8'b11111110;
 		4'h9: seg = 8'b11110110;
