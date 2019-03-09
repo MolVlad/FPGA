@@ -1,4 +1,4 @@
-module clk_div #(parameter x = 2, parameter y = 1)(
+module clk_div #(parameter x = 2)(
 	input clk,
 
 	output clk_out
@@ -7,12 +7,9 @@ module clk_div #(parameter x = 2, parameter y = 1)(
 reg [x-1:0]cnt = 0;
 	
 always @(posedge clk) begin
-	if(cnt == y)
-		cnt <= 0;
-	else
-		cnt <= cnt + 1;
+	cnt <= cnt + 1;
 end
 
-assign clk_out = (cnt == 0);
+assign clk_out = cnt[x-1];
 
 endmodule
