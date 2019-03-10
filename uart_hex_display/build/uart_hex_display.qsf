@@ -204,6 +204,8 @@ set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -
 
 # end ENTITY(top)
 # ---------------
+set_global_assignment -name VERILOG_FILE ../src/clk_div.v
+set_global_assignment -name VERILOG_FILE ../src/uart_in.v
 set_global_assignment -name VERILOG_FILE ../src/top.v
 set_global_assignment -name VERILOG_FILE ../src/hex_to_seg.v
 set_global_assignment -name VERILOG_FILE ../src/hex_display.v

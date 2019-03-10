@@ -6,23 +6,22 @@ module uart_in (
 	output flag_complete
 );
 
-reg [3:0]bit_num = 0;
-initial data = 8'h0;
+reg [3:0]bit_num = 8;
 
 always @(posedge clk) begin
-	if((in == 0) && (bit_num == 9))
+	if((in == 0) && (bit_num == 8))
 	begin
 		bit_num <= 0;
 		data <= 0;
 	end
 
-	else if(bit_num != 9)
+	else if(bit_num != 8)
 	begin
 		bit_num <= bit_num + 1;
-		data[bit_num - 2] <= in;
+		data[bit_num] <= in;
 	end
 end
 
-assign flag_complete = (bit_num == 9);
+assign flag_complete = (bit_num == 8);
 
 endmodule

@@ -8,6 +8,8 @@ module hex_display (
 
 reg [12:0]cnt;
 
+wire divided_clk;
+
 always @(posedge clk) begin
 	if(cnt == 5000)
 		cnt <= 0;
