@@ -8,13 +8,34 @@ always begin
     #1 clk = ~clk;
 end
 
-clk_div #(.x(6)) clk_div(.clk(clk), .clk_out(divided_clk));
-
 reg button;
 
 wire button_state;
 
-button_bounce button_bounce(.clk(divided_clk), .button(button), .state(button_state));
+button_bounce button_bounce(.clk(clk), .button(button), .state(button_state));
+
+wire button_edge;
+
+posedge_impulse posedge_impulse(.clk(clk), .in(button_state), .out(button_edge));
+
+initial begin
+  button = 0;
+  #1000 button = 1;
+  #1000 button = 0;
+  #100 button = 1;
+  #100 button = 0;
+  #100 button = 1;
+  #100 button = 0;
+  #100 button = 1;
+  #100 button = 0;
+  #100 button = 1;
+  #100 button = 0;
+  #100 button = 1;
+  #100 button = 0;
+  #100 button = 1;
+  #100 button = 0;
+  #100 button = 1;
+end
 
 initial begin
 	$dumpvars;      /* Open for dump of signals */

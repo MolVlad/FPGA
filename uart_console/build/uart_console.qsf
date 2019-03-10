@@ -113,7 +113,7 @@ set_location_assignment PIN_11 -to FLASH_CS
 set_location_assignment PIN_13 -to EPCS_DATA
 set_location_assignment PIN_23 -to FLASH_DO
 set_location_assignment PIN_24 -to CLK
-set_location_assignment PIN_91 -to KEY2
+set_location_assignment PIN_91 -to S2
 set_location_assignment PIN_90 -to KEY1
 set_location_assignment PIN_89 -to KEY4
 set_location_assignment PIN_88 -to KEY3
@@ -204,7 +204,8 @@ set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -
 
 # end ENTITY(top)
 # ---------------
-set_global_assignment -name VERILOG_FILE ../src/bounce_protect.v
+set_global_assignment -name VERILOG_FILE ../src/uart_out.v
+set_global_assignment -name VERILOG_FILE ../src/button_bounce.v
 set_global_assignment -name VERILOG_FILE ../src/clk_div.v
 set_global_assignment -name VERILOG_FILE ../src/uart_in.v
 set_global_assignment -name VERILOG_FILE ../src/top.v

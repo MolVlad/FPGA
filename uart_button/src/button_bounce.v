@@ -7,7 +7,7 @@ module button_bounce(
 
 wire divided_clk;
 
-clk_div #(.x(6)) clk_div(.clk(clk), .clk_out(divided_clk));
+clk_div #(.x(16), .y(60000)) clk_div(.clk(clk), .clk_out(divided_clk));
 
 reg [7:0]sample = 8'h0;
 
