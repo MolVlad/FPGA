@@ -18,8 +18,8 @@ end
 assign clk_out = i[2];
 
 wire [2:0]result;
-assign result = (sample[0] + sample[1] + sample[2] + sample[4]);
+assign result = (sample[0] + sample[1] + sample[2] + sample[4] + sample[5] + sample[6] + sample[7]);
 
-assign out = in;
+assign out = (result > 3);
 
 endmodule
