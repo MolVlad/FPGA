@@ -11,7 +11,7 @@ reg [12:0]cnt;
 wire divided_clk;
 
 always @(posedge clk) begin
-	if(cnt == 5000)
+	if(cnt == 100)
 		cnt <= 0;
 	else
 		cnt <= cnt + 1;
