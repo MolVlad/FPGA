@@ -22,4 +22,4 @@ DATE = "22:31:16  January 12, 2019"
 
 # Revisions
 
-PROJECT_REVISION = "uart_hex_display_noise_protect"
+PROJECT_REVISION = "uart_console"
