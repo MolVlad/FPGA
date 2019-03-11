@@ -25,7 +25,7 @@ always @(posedge clk) begin
   b <= ~flag_busy;
 end
 
-assign uart_start = (flag_start || ((~flag_busy ^ b) && (b == 0) && (i != 3)));	//?????
+assign uart_start = (flag_start || ((~flag_busy ^ b) && (b == 0) && (i != 3)));
 
 wire [7:0]ascii;
 
