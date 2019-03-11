@@ -6,30 +6,26 @@ module uart_queue (
   output out
 );
 
-reg [3:0]current_data;
+wire [3:0]current_data;
 
-reg [1:0]i;
+reg [1:0]i = 3;
 
 always @(negedge flag_busy) begin
-  i <= i + 1;
-
-  current_data <= data[i * 4 +: 4];
+  i <= i - 1;
 end
+
+assign current_data = data[i * 4 +: 4];
+
+wire uart_start, flag_busy;
+
 
 reg b = 0;
 
-wire flag_busy;
-
 always @(posedge clk) begin
-  if(flag_start == 1)
-    b <= 1;
-
-  b <= flag_busy;
+  b <= ~flag_busy;
 end
 
-wire uart_start;
-
-assign uart_start = ((flag_busy ^ b) && (b == 1));
+assign uart_start = (flag_start || ((~flag_busy ^ b) && (b == 0) && (i != 3)));	//?????
 
 wire [7:0]ascii;
 
