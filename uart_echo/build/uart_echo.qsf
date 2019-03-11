@@ -208,7 +208,6 @@ set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 
 
 set_global_assignment -name VERILOG_FILE ../src/hex_to_ascii.v
-set_global_assignment -name VERILOG_FILE ../src/uart_queue.v
 set_global_assignment -name VERILOG_FILE ../src/display_shift.v
 set_global_assignment -name VERILOG_FILE ../src/ascii_to_hex.v
 set_global_assignment -name VERILOG_FILE ../src/posedge_impulse.v
