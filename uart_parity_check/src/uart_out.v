@@ -7,7 +7,11 @@ module uart_out (
 	output reg flag_busy
 );
 
-wire [9:0]res = {1'b1, data, 1'b0};
+wire parity_bit;
+
+wire [10:0]res = {1'b1, data, parity_bit, 1'b0};
+
+parity_check parity_check(.data(data), .parity_bit(parity_bit));
 
 reg [3:0]bit_num = 4'h0;
 
@@ -19,7 +23,7 @@ always @(posedge clk) begin
 		flag_busy <= 1;
 	end
 
-	if((bit_num == 9) && (flag_busy == 1))
+	if((bit_num == 10) && (flag_busy == 1))
 		flag_busy <= 0;
 	else if(flag_busy == 1)
 		bit_num <= bit_num + 1;
