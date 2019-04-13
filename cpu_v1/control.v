@@ -17,7 +17,22 @@ always @(*) begin
   casez ({funct3, opcode})
     10'b000_0010011: begin // ADDI
       rf_we = 1'b1;
-      alu_op = 3'b1;
+      alu_op = 3'h1;
+      imm12 = instr[32:20];
+      end
+    10'b100_0010011: begin // XORI
+      rf_we = 1'b1;
+      alu_op = 3'h2;
+      imm12 = instr[32:20];
+      end
+    10'b110_0010011: begin // ORI
+      rf_we = 1'b1;
+      alu_op = 3'h3;
+      imm12 = instr[32:20];
+      end
+    10'b111_0010011: begin // ANDI
+      rf_we = 1'b1;
+      alu_op = 3'h4;
       imm12 = instr[32:20];
       end
     default: ;
