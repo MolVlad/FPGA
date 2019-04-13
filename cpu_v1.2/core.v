@@ -22,7 +22,7 @@ wire [4:0]rs2 = instr[24:20];
 wire [4:0]rd = instr[11:7];
 
 wire [31:0]alu_res;
-wire [2:0]alu_op;
+wire [4:0]alu_op;
 wire [31:0]alu_src_a = rf_rdata0;
 wire [31:0]alu_src_b = is_from_rf ? rf_rdata1 : imm32;
 
