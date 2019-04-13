@@ -14,6 +14,6 @@ always @(posedge divided_clk) begin
 	sample[0] <= button;
 end
 
-assign state = (sample == 8'b11111111);
+assign state = &sample;
 
 endmodule
