@@ -3,7 +3,10 @@ module core(
     input [31:0]instr_data,
     input [31:0]last_pc,
 
-    output [31:0]instr_addr
+    output [31:0]instr_addr,
+    output [31:0]mem_addr,
+    output [31:0]mem_data,
+    output mem_we
 );
 
 reg [31:0]pc = 32'hFFFFFFFF;
@@ -45,6 +48,9 @@ wire [31:0]rf_wdata = alu_res;
 wire [4:0]rf_waddr = rd;
 wire rf_we;
 
+assign mem_data = rf_rdata1;
+assign mem_addr = alu_res;
+
 reg_file reg_file(
     .clk(clk),
     .raddr0(rf_raddr0), .rdata0(rf_rdata0),
@@ -57,7 +63,8 @@ control control(
     .imm12(imm12),
     .alu_op(alu_op),
     .rf_we(rf_we),
-    .is_from_rf(is_from_rf)
+    .is_from_rf(is_from_rf),
+    .mem_we(mem_we)
 );
 
 endmodule

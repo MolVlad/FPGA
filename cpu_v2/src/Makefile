@@ -4,7 +4,7 @@ test: $(PSET)
 	./$(PSET) | tee cpu.log
 #	grep "CPUv1" cpu.log | diff cpu_test.log -
 
-$(PSET): testbench.v cpu_top.v core.v alu.v reg_file.v control.v rom.v
+$(PSET): testbench.v cpu_top.v core.v alu.v reg_file.v control.v rom.v mem_ctrl.v hex_to_seg.v hex_display.v
 	iverilog $^ -o $@
 
 clean:

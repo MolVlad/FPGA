@@ -7,7 +7,7 @@ module rom #(parameter ADDR_WIDTH = 3, parameter WIDTH = 32)(
 reg [WIDTH - 1:0]mem[2**ADDR_WIDTH - 1:0];
 
 initial begin
-    $readmemh("samples/test.txt", mem);
+    $readmemh("../src/samples/test.txt", mem);
 end
 
 always @(posedge clk) begin
