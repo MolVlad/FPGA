@@ -6,7 +6,8 @@ module control(
   output reg [4:0]alu_op,
   output reg rf_we,   // register file write enable
   output reg mem_we,   // memory write enable
-  output reg branch
+  output reg branch,
+  output reg is_invert
 );
 
 wire [6:0]opcode = instr[6:0];
@@ -21,6 +22,7 @@ always @(*) begin
   is_from_rf = 1'b0;
   mem_we = 1'b0;
   branch = 1'b0;
+  is_invert = 1'b0;
 
   casez ({funct5, funct2, funct3, opcode})
     17'bzzzzz_zz_000_0010011: begin // ADDI
@@ -127,6 +129,42 @@ always @(*) begin
       alu_op = 5'h2;
       branch = 1'b1;
       is_from_rf = 1'b1;
+      is_invert = 1'b0;
+      imm12 = {{2{instr[31]}}, instr[7], instr[30:25], instr[11:9]};
+      end
+    17'bzzzzz_zz_000_1100011: begin // BEQ
+      alu_op = 5'h2;
+      branch = 1'b1;
+      is_from_rf = 1'b1;
+      is_invert = 1'b1;
+      imm12 = {{2{instr[31]}}, instr[7], instr[30:25], instr[11:9]};
+      end
+    17'bzzzzz_zz_100_1100011: begin // BLT
+      alu_op = 5'h6;
+      branch = 1'b1;
+      is_from_rf = 1'b1;
+      is_invert = 1'b0;
+      imm12 = {{2{instr[31]}}, instr[7], instr[30:25], instr[11:9]};
+      end
+    17'bzzzzz_zz_101_1100011: begin // BGE
+      alu_op = 5'h6;
+      branch = 1'b1;
+      is_from_rf = 1'b1;
+      is_invert = 1'b1;
+      imm12 = {{2{instr[31]}}, instr[7], instr[30:25], instr[11:9]};
+      end
+    17'bzzzzz_zz_110_1100011: begin // BLTU
+      alu_op = 5'hA;
+      branch = 1'b1;
+      is_from_rf = 1'b1;
+      is_invert = 1'b0;
+      imm12 = {{2{instr[31]}}, instr[7], instr[30:25], instr[11:9]};
+      end
+    17'bzzzzz_zz_111_1100011: begin // BGEU
+      alu_op = 5'hA;
+      branch = 1'b1;
+      is_from_rf = 1'b1;
+      is_invert = 1'b1;
       imm12 = {{2{instr[31]}}, instr[7], instr[30:25], instr[11:9]};
       end
     default: ;

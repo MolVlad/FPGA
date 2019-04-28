@@ -10,9 +10,10 @@ module core(
 );
 
 wire branch_taken = branch & cmp_res;
-wire cmp_res = alu_res != 0;
+wire cmp_res = is_invert ? (alu_res == 0) : (alu_res != 0);
 wire branch;
 wire [31:0]branch_target = pc + imm32;
+wire is_invert;
 
 wire [31:0]pc_target = branch_taken ? branch_target : (pc + 1);
 reg [31:0]pc = 32'hFFFFFFFF;
@@ -71,7 +72,8 @@ control control(
     .rf_we(rf_we),
     .is_from_rf(is_from_rf),
     .mem_we(mem_we),
-    .branch(branch)
+    .branch(branch),
+    .is_invert(is_invert)
 );
 
 endmodule
