@@ -9,8 +9,14 @@ module core(
     output mem_we
 );
 
+wire branch_taken = branch & cmp_res;
+wire cmp_res = alu_res != 0;
+wire branch;
+wire [31:0]branch_target = pc + imm32;
+
+wire [31:0]pc_target = branch_taken ? branch_target : (pc + 1);
 reg [31:0]pc = 32'hFFFFFFFF;
-wire [31:0]pc_next = (pc == last_pc) ? pc : pc + 1;
+wire [31:0]pc_next = (pc == last_pc) ? pc : pc_target;
 
 always @(posedge clk) begin
     pc <= pc_next;
@@ -64,7 +70,8 @@ control control(
     .alu_op(alu_op),
     .rf_we(rf_we),
     .is_from_rf(is_from_rf),
-    .mem_we(mem_we)
+    .mem_we(mem_we),
+    .branch(branch)
 );
 
 endmodule

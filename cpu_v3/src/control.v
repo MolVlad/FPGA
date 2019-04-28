@@ -5,7 +5,8 @@ module control(
   output reg [11:0]imm12,
   output reg [4:0]alu_op,
   output reg rf_we,   // register file write enable
-  output reg mem_we   // memory write enable
+  output reg mem_we,   // memory write enable
+  output reg branch
 );
 
 wire [6:0]opcode = instr[6:0];
@@ -19,6 +20,7 @@ always @(*) begin
   imm12 = 12'b0;
   is_from_rf = 1'b0;
   mem_we = 1'b0;
+  branch = 1'b0;
 
   casez ({funct5, funct2, funct3, opcode})
     17'bzzzzz_zz_000_0010011: begin // ADDI
@@ -120,6 +122,12 @@ always @(*) begin
       alu_op = 5'h1;
       mem_we = 1'b1;
       imm12 = {instr[31:25], instr[11:7]};
+      end
+    17'bzzzzz_zz_001_1100011: begin // BNE
+      alu_op = 5'h2;
+      branch = 1'b1;
+      is_from_rf = 1'b1;
+      imm12 = {{2{instr[31]}}, instr[7], instr[30:25], instr[11:9]};
       end
     default: ;
   endcase
