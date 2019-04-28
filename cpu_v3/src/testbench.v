@@ -17,7 +17,7 @@ cpu_top cpu_top(
 
 initial begin
     $dumpvars;
-    #60 $finish;
+    #600 $finish;
 end
 
 endmodule

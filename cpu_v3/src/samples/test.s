@@ -1,17 +1,29 @@
 .text
 .globl _start
 .globl _finish
+.globl main
 
 _start:
-    li      x3,     0x234
-    sw      x3,     0x20(x0)    # [0x20] <- x3
+call _main
+call _finish
 
-    li      x1,     -3
-    li      x2,     -2
-    bltu     x1,     x2, _finish
+_main:
+  li t0, 0
+  li t1, 1
+  li t3, 1
+  li t4, 0x12
 
-    li      x3,     0x0000
-    sw      x3,     0x20(x0)    # [0x20] <- x3
+_next:
+  add t2, t1, t0
+  sw t2, 0x20(zero)
+
+  mv t0, t1
+  mv t1, t2
+
+  addi t3, t3, 1
+  bne t3, t4, _next
+
+  ret
 
 _finish:
     nop

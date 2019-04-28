@@ -9,13 +9,31 @@ module core(
     output mem_we
 );
 
+wire jmp;
+wire is_imm20;
+wire is_addr_reg;
+wire [19:0]imm20 = {instr_data[31], instr_data[19:12], instr_data[20], instr_data[30:22]};
+wire [19:0]offset = is_imm20 ? imm20 : {{10{instr_data[31]}}, instr_data[31:22]};
+wire [31:0]offset32 = {{20{offset[19]}}, offset};
+wire [31:0]jmp_target = is_addr_reg ? rf_rdata0 + offset32 : pc + offset32;
+
 wire branch_taken = branch & cmp_res;
 wire cmp_res = is_invert ? (alu_res == 0) : (alu_res != 0);
 wire branch;
 wire [31:0]branch_target = pc + imm32;
 wire is_invert;
 
-wire [31:0]pc_target = branch_taken ? branch_target : (pc + 1);
+always @(*) begin
+  pc_target = pc + 1;
+
+  if(branch_taken)
+    pc_target = branch_target;
+
+  if(jmp)
+    pc_target = jmp_target;
+end
+
+reg [31:0]pc_target;
 reg [31:0]pc = 32'hFFFFFFFF;
 wire [31:0]pc_next = (pc == last_pc) ? pc : pc_target;
 
@@ -33,7 +51,7 @@ wire [4:0]rd = instr[11:7];
 
 wire [31:0]alu_res;
 wire [4:0]alu_op;
-wire [31:0]alu_src_a = rf_rdata0;
+wire [31:0]alu_src_a = is_from_pc ? pc : rf_rdata0;
 wire [31:0]alu_src_b = is_from_rf ? rf_rdata1 : imm32;
 
 wire [11:0]imm12;
@@ -73,7 +91,11 @@ control control(
     .is_from_rf(is_from_rf),
     .mem_we(mem_we),
     .branch(branch),
-    .is_invert(is_invert)
+    .is_invert(is_invert),
+    .jmp(jmp),
+    .is_from_pc(is_from_pc),
+    .is_imm20(is_imm20),
+    .is_addr_reg(is_addr_reg)
 );
 
 endmodule

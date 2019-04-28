@@ -7,7 +7,11 @@ module control(
   output reg rf_we,   // register file write enable
   output reg mem_we,   // memory write enable
   output reg branch,
-  output reg is_invert
+  output reg is_invert,
+  output reg jmp,
+  output reg is_from_pc,
+  output reg is_imm20,
+  output reg is_addr_reg
 );
 
 wire [6:0]opcode = instr[6:0];
@@ -23,6 +27,10 @@ always @(*) begin
   mem_we = 1'b0;
   branch = 1'b0;
   is_invert = 1'b0;
+  is_from_pc = 1'b0;
+  is_imm20 = 1'b0;
+  jmp = 1'b0;
+  is_addr_reg = 1'b0;
 
   casez ({funct5, funct2, funct3, opcode})
     17'bzzzzz_zz_000_0010011: begin // ADDI
@@ -166,6 +174,23 @@ always @(*) begin
       is_from_rf = 1'b1;
       is_invert = 1'b1;
       imm12 = {{2{instr[31]}}, instr[7], instr[30:25], instr[11:9]};
+      end
+    17'bzzzzz_zz_000_1100111: begin // JALR
+      alu_op = 5'h1;
+      imm12 = 12'h1;
+      jmp = 1'b1;
+      is_from_pc = 1'b0;
+      rf_we = 1'b1;
+      is_addr_reg = 1'b1;
+      end
+    17'bzzzzz_zz_zzz_1101111: begin // JAL
+      alu_op = 5'h1;
+      jmp = 1'b1;
+      imm12 = 12'h1;
+      is_from_pc = 1'b1;
+      is_imm20 = 1'b1;
+      rf_we = 1'b1;
+      is_addr_reg = 1'b0;
       end
     default: ;
   endcase

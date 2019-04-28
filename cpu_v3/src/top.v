@@ -10,7 +10,7 @@ cpu_top cpu_top(
     .data_out(data)
 );
 
-wire [15:0]data;
+wire [15:0]data;	
 
 wire [3:0]anodes;
 assign {DS_EN1, DS_EN2, DS_EN3, DS_EN4} = ~anodes;
