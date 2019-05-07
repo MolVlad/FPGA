@@ -1,4 +1,4 @@
-module rom #(parameter ADDR_WIDTH = 3, parameter WIDTH = 32)(
+module rom #(parameter ADDR_WIDTH = 5, parameter WIDTH = 32)(
     input [ADDR_WIDTH - 1:0]addr,
     input clk,
     output reg [WIDTH - 1:0]q

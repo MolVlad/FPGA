@@ -5,8 +5,13 @@ module top(
     output DS_A, DS_B, DS_C, DS_D, DS_E, DS_F, DS_G, DS_DP
 );
 
+my_pll my_pll_inst (
+	.inclk0(CLK),
+	.c0(div_clk)
+);
+
 cpu_top cpu_top(
-    .clk(CLK),
+    .clk(div_clk),
     .data_out(data)
 );
 
