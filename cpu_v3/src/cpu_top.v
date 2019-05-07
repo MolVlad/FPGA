@@ -14,7 +14,7 @@ rom #(.ADDR_WIDTH(ADDR_WIDTH))rom(.clk(clk), .addr(instr_addr[ADDR_WIDTH - 1:0])
 
 core core(
     .clk(clk),
-    .instr_data(instr_data), .last_pc(1),
+    .instr_data(instr_data), .last_pc(31),
     .instr_addr(instr_addr),
     .mem_addr(mem_addr),
     .mem_data(mem_data),
