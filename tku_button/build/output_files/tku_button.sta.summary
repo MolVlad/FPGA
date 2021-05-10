@@ -1,0 +1,149 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'CLK'
+Slack : -3.212
+TNS   : -48.357
+
+Type  : Slow 1200mV 85C Model Setup 'button_bounce:button_bounce|clk_div:clk_div|cnt[15]'
+Slack : -2.501
+TNS   : -4.311
+
+Type  : Slow 1200mV 85C Model Setup 'button_bounce:button_bounce|state'
+Slack : -1.257
+TNS   : -8.061
+
+Type  : Slow 1200mV 85C Model Setup 'hex_display:hex_display|cnt[0]'
+Slack : -0.029
+TNS   : -0.029
+
+Type  : Slow 1200mV 85C Model Hold 'hex_display:hex_display|cnt[0]'
+Slack : 0.452
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'button_bounce:button_bounce|state'
+Slack : 0.453
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'CLK'
+Slack : 0.465
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'button_bounce:button_bounce|clk_div:clk_div|cnt[15]'
+Slack : 0.710
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLK'
+Slack : -3.000
+TNS   : -46.123
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'button_bounce:button_bounce|state'
+Slack : -1.487
+TNS   : -23.792
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'button_bounce:button_bounce|clk_div:clk_div|cnt[15]'
+Slack : -1.487
+TNS   : -13.383
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'hex_display:hex_display|cnt[0]'
+Slack : -1.487
+TNS   : -2.974
+
+Type  : Slow 1200mV 0C Model Setup 'CLK'
+Slack : -2.969
+TNS   : -41.446
+
+Type  : Slow 1200mV 0C Model Setup 'button_bounce:button_bounce|clk_div:clk_div|cnt[15]'
+Slack : -2.327
+TNS   : -3.475
+
+Type  : Slow 1200mV 0C Model Setup 'button_bounce:button_bounce|state'
+Slack : -1.077
+TNS   : -6.541
+
+Type  : Slow 1200mV 0C Model Setup 'hex_display:hex_display|cnt[0]'
+Slack : 0.067
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'hex_display:hex_display|cnt[0]'
+Slack : 0.401
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'button_bounce:button_bounce|state'
+Slack : 0.403
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'CLK'
+Slack : 0.416
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'button_bounce:button_bounce|clk_div:clk_div|cnt[15]'
+Slack : 0.633
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLK'
+Slack : -3.000
+TNS   : -46.123
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'button_bounce:button_bounce|state'
+Slack : -1.487
+TNS   : -23.792
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'button_bounce:button_bounce|clk_div:clk_div|cnt[15]'
+Slack : -1.487
+TNS   : -13.383
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'hex_display:hex_display|cnt[0]'
+Slack : -1.487
+TNS   : -2.974
+
+Type  : Fast 1200mV 0C Model Setup 'CLK'
+Slack : -0.946
+TNS   : -9.789
+
+Type  : Fast 1200mV 0C Model Setup 'button_bounce:button_bounce|clk_div:clk_div|cnt[15]'
+Slack : -0.547
+TNS   : -0.547
+
+Type  : Fast 1200mV 0C Model Setup 'button_bounce:button_bounce|state'
+Slack : 0.015
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'hex_display:hex_display|cnt[0]'
+Slack : 0.552
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'hex_display:hex_display|cnt[0]'
+Slack : 0.186
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'button_bounce:button_bounce|state'
+Slack : 0.187
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'CLK'
+Slack : 0.193
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'button_bounce:button_bounce|clk_div:clk_div|cnt[15]'
+Slack : 0.269
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLK'
+Slack : -3.000
+TNS   : -33.550
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'button_bounce:button_bounce|state'
+Slack : -1.000
+TNS   : -16.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'button_bounce:button_bounce|clk_div:clk_div|cnt[15]'
+Slack : -1.000
+TNS   : -9.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'hex_display:hex_display|cnt[0]'
+Slack : -1.000
+TNS   : -2.000
+
+------------------------------------------------------------

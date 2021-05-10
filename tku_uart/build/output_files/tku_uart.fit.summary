@@ -1,0 +1,16 @@
+Fitter Status : Successful - Tue Mar 30 15:38:53 2021
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : tku_uart
+Top-level Entity Name : top
+Family : Cyclone IV E
+Device : EP4CE6E22C8
+Timing Models : Final
+Total logic elements : 1,258 / 6,272 ( 20 % )
+    Total combinational functions : 991 / 6,272 ( 16 % )
+    Dedicated logic registers : 847 / 6,272 ( 14 % )
+Total registers : 847
+Total pins : 16 / 92 ( 17 % )
+Total virtual pins : 0
+Total memory bits : 151,552 / 276,480 ( 55 % )
+Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

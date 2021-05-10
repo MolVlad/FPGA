@@ -1,0 +1,85 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "RXD",
+					"strict" : false
+				},
+				{
+					"name" : "DS_EN1",
+					"strict" : false
+				},
+				{
+					"name" : "DS_EN2",
+					"strict" : false
+				},
+				{
+					"name" : "DS_EN3",
+					"strict" : false
+				},
+				{
+					"name" : "DS_EN4",
+					"strict" : false
+				},
+				{
+					"name" : "DS_A",
+					"strict" : false
+				},
+				{
+					"name" : "DS_B",
+					"strict" : false
+				},
+				{
+					"name" : "DS_C",
+					"strict" : false
+				},
+				{
+					"name" : "DS_D",
+					"strict" : false
+				},
+				{
+					"name" : "DS_E",
+					"strict" : false
+				},
+				{
+					"name" : "DS_F",
+					"strict" : false
+				},
+				{
+					"name" : "DS_G",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_A0",
+					"strict" : false
+				},
+				{
+					"name" : "CLK",
+					"strict" : false
+				},
+				{
+					"name" : "TXD",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tms",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tck",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdi",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdo",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
